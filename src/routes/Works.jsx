@@ -97,7 +97,7 @@ export const Works = () => {
 
 
                 </Tabs>
-                <div className={'flex w-[90%] gap-[100px] w-full flex-wrap !place-items-center justify-center'}>
+                <div className={'flex w-[80%] gap-[100px] flex-wrap !place-items-center justify-center'}>
                     {activeTab === "frontend" ?
                         projects.filter((project) => project.type === "frontend").map((project, index) => {
                                 return (
