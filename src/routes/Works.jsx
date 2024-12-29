@@ -3,7 +3,7 @@ import {Tabs} from "@mantine/core";
 import {useState} from "react";
 
 export const Works = () => {
-    const [activeTab, setActiveTab] = useState('frontend');
+    const [activeTab, setActiveTab] = useState("frontend");
 
     const projects = [
         {
@@ -17,7 +17,7 @@ export const Works = () => {
             title: 'ICG website',
             tags: ["TypeScript", 'Material UI', 'Animations', 'Debugging', 'MantineUI', 'CSS', 'Tailwind',],
             type: 'frontend',
-            url: 'icg.ch',
+            url: 'https://www.icg.ch/',
             photo: '/imgs/projects/icg.svg'
         },
         {
@@ -84,26 +84,25 @@ export const Works = () => {
             <section id={"about"}
                      className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-center'}>
                 <Tabs defaultValue={"frontend"} color={"#915c62"} classNames={{
-                    tabLabel: "text-primary-main text-[30px] font-serif font-semibold",
+                    tabLabel: "text-primary-main text-[12px] text-wrap text-center max-sm:max-w-[100px] lg:text-[28px] font-serif md:font-semibold",
                     tab: "hover:bg-[#915c62]"
                 }}
                       className={'w-[80%] mb-[30px]'}>
-                    <Tabs.List grow>
+                    <Tabs.List grow defaultValue={"frontend"} >
                         <Tabs.Tab value={"frontend"} onClick={() => setActiveTab("frontend")}>Frontend Web
                             Dev</Tabs.Tab>
-                        <Tabs.Tab value={"data"} onClick={() => setActiveTab("data")}>Data Analytics/Machine
+                        <Tabs.Tab value={"data"} onClick={() => setActiveTab("data")}>Data Analytics / Machine
                             Learning</Tabs.Tab>
                     </Tabs.List>
 
 
                 </Tabs>
-                <div className={'flex w-[70%] gap-[100px] w-full flex-wrap !place-items-center justify-center'}>
+                <div className={'flex w-[90%] gap-[100px] w-full flex-wrap !place-items-center justify-center'}>
                     {activeTab === "frontend" ?
                         projects.filter((project) => project.type === "frontend").map((project, index) => {
                                 return (
-                                    <a href={project.url} target={'_blank'} key={index}>
-                                        <div
-                                            className={'flex flex-col gap-[10px] w-[500px] h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                    <a href={project.url} target={'_blank'} key={index}
+                                            className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
                                             <h1 className={'text-brown-main text-[24px] font-serif'}>{project.title}</h1>
                                              <div className={'bg-primary-main h-[200px] w-full'}>
                                                 <img src={project.photo} className={'h-full w-full object-none'}/>
@@ -119,7 +118,6 @@ export const Works = () => {
                                             <a href={project.url} target={'_blank'}
                                                className={'place-self-end bottom-0 text-brown-main font-semibold'}>View live
                                                 here</a>
-                                        </div>
                                     </a>
 
                                 )
@@ -129,25 +127,23 @@ export const Works = () => {
 
                         projects.filter((project) => project.type === "data").map((project, index) => {
                                 return (
-                                    <a href={project.url} target={'_blank'} key={index}>
-                                        <div
-                                            className={'flex flex-col gap-[10px] w-[500px] h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
-                                            <h1 className={'text-brown-main text-[24px] font-serif h-[75px]'}>{project.title}</h1>
-                                            <div className={'bg-brown-main h-[200px] w-full'}>
-                                                <img src={project.photo} className={'h-full w-full object-cover'}/>
+                                     <a href={project.url} target={'_blank'} key={index}
+                                            className={'flex flex-col gap-[10px] h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                            <h1 className={'text-brown-main text-[24px] font-serif'}>{project.title}</h1>
+                                             <div className={'bg-primary-main h-[200px] w-full'}>
+                                                <img src={project.photo} className={'h-full w-full object-none'}/>
                                             </div>
-                                            <div className={'flex gap-[10px] flex-wrap h-[80px]'}>
+                                            <div className={'flex !gap-[10px] flex-wrap h-[125px] justify-left'}>
                                                 {project.tags.map((tag, index) => {
                                                     return (
                                                         <span key={index}
-                                                              className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md'}>{tag}</span>
+                                                              className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
                                                     )
                                                 })}
                                             </div>
                                             <a href={project.url} target={'_blank'}
-                                               className={'place-self-end bottom-0 text-brown-main font-semibold'}>View
-                                                repo here</a>
-                                        </div>
+                                               className={'place-self-end bottom-0 text-brown-main font-semibold'}>View repo
+                                                here</a>
                                     </a>
                                 )
                             }
