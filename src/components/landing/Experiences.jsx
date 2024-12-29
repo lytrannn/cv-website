@@ -43,8 +43,7 @@ export function Experiences() {
                     <div className={'flex mx-auto bg-brown-main rounded-full w-[150px] h-[150px]'}>
                         <div
                             className={'flex border-primary-main border-[3px] rounded-full w-[140px] h-[140px] my-auto mx-auto'}>
-                           <FontAwesomeIcon icon={faPython}
-                                             className={'text-primary-main mx-auto my-auto !w-[63px] !h-[63px]'}/>
+                          <img src={'/imgs/jupyter.svg'} className={'!w-[80px] !h-[80px] mx-auto my-auto'}/>
                         </div>
                     </div>
                     <h1 className={'font-serif mt-[20px] xl:mt-[50px] text-[32px] p-[16px] text-center w-fit xl:h-[130px] xl:w-[50%] mx-auto'}>Machine Learning</h1>
