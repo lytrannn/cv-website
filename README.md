@@ -14,7 +14,7 @@ This repository contains the code for my CV website, a personal portfolio built 
 
 ## Demo
 
-Check out the live version of my CV website [here](#).
+Check out the live version of my CV website [here](https://lytrann.netlify.app).
 
 ## Installation
 
