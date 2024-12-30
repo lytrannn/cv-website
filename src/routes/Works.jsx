@@ -1,7 +1,8 @@
 import {Header} from "../components/common/Header";
 import {Tabs} from "@mantine/core";
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import {t} from "../i18n/function";
+import {TextSlide} from "@deepsel/lake-ui";
 
 export const Works = () => {
     const [activeTab, setActiveTab] = useState("frontend");
@@ -83,7 +84,7 @@ export const Works = () => {
         return () => {
             if (window.location.hash === "#frontend") {
                 setActiveTab("frontend")
-            } else {
+            } else if (window.location.hash === "#analytics") {
                 setActiveTab("data")
             }
         };
@@ -101,9 +102,12 @@ export const Works = () => {
                 }}
                       className={'w-[80%] mb-[30px] place-self-top'}>
                     <Tabs.List grow defaultValue={"frontend"}>
-                        <Tabs.Tab value={"frontend"} onClick={() => setActiveTab("frontend")}>{t("Frontend Web Development")}</Tabs.Tab>
-                        <Tabs.Tab value={"data"} onClick={() => setActiveTab("data")}>{t("Data Analytics")} / Machine
-                            Learning</Tabs.Tab>
+                        <Tabs.Tab value={"frontend"}
+                                  onClick={() => setActiveTab("frontend")}>
+                            <TextSlide>{t("Frontend Web Development")}</TextSlide></Tabs.Tab>
+                        <Tabs.Tab value={"data"} onClick={() => setActiveTab("data")}>
+                            <TextSlide>{t("Data Analytics")} / Machine
+                                Learning</TextSlide></Tabs.Tab>
                     </Tabs.List>
 
 
@@ -112,24 +116,27 @@ export const Works = () => {
                     {activeTab === "frontend" ?
                         projects.filter((project) => project.type === "frontend").map((project, index) => {
                                 return (
-                                    <a href={project.url} target={'_blank'} key={index}
-                                         className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
-                                        <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
-                                        <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
-                                            <img src={project.photo} className={'h-full w-full object-none'}/>
-                                        </div>
-                                        <div className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
-                                            {project.tags.map((tag, index) => {
-                                                return (
-                                                    <span key={index}
-                                                          className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
-                                                )
-                                            })}
-                                        </div>
-                                        <div
-                                            className={'place-self-end bottom-0 text-brown-main font-semibold'}>{t("View live here")}
-                                        </div>
-                                    </a>
+                                    <TextSlide key={index} delay={((index + 1) * 300)}>
+                                        <a href={project.url} target={'_blank'} key={index}
+                                           className={'flex flex-col gap-[10px] w-ful¬l h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                            <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
+                                            <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
+                                                <img src={project.photo} className={'h-full w-full object-none'}/>
+                                            </div>
+                                            <div
+                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
+                                                {project.tags.map((tag, index) => {
+                                                    return (
+                                                        <span key={index}
+                                                              className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
+                                                    )
+                                                })}
+                                            </div>
+                                            <div
+                                                className={'place-self-end bottom-0 text-brown-main font-semibold'}>{t("View live here")}
+                                            </div>
+                                        </a>
+                                    </TextSlide>
 
                                 )
                             }
@@ -138,24 +145,27 @@ export const Works = () => {
 
                         projects.filter((project) => project.type === "data").map((project, index) => {
                                 return (
-                                  <a href={project.url} target={'_blank'} key={index}
-                                         className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
-                                        <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
-                                        <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
-                                            <img src={project.photo} className={'h-full w-full object-none'}/>
-                                        </div>
-                                        <div className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
-                                            {project.tags.map((tag, index) => {
-                                                return (
-                                                    <span key={index}
-                                                          className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
-                                                )
-                                            })}
-                                        </div>
-                                        <div
-                                            className={'place-self-end bottom-0 text-brown-main font-semibold'}>{t("View repo here")}
-                                        </div>
-                                    </a>
+                                    <TextSlide delay={((index + 1) * 300)} key={index}>
+                                        <a href={project.url} target={'_blank'} key={index}
+                                           className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                            <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
+                                            <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
+                                                <img src={project.photo} className={'h-full w-full object-none'}/>
+                                            </div>
+                                            <div
+                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
+                                                {project.tags.map((tag, index) => {
+                                                    return (
+                                                        <span key={index}
+                                                              className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
+                                                    )
+                                                })}
+                                            </div>
+                                            <div
+                                                className={'place-self-end bottom-0 text-brown-main font-semibold'}>{t("View repo here")}
+                                            </div>
+                                        </a>
+                                    </TextSlide>
                                 )
                             }
                         )
