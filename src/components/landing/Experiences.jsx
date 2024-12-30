@@ -7,6 +7,11 @@ import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
 export function Experiences() {
     // const {t} = useTranslation();
 
+    const scrollToNextSection = () => {
+        const nextSection = document.getElementById('about');
+        nextSection && nextSection.scrollIntoView({behavior: 'smooth'});
+
+    }
     return (
         <section id={"experiences"}
                  className={'bg-primary-main flex flex-col xl:!w-[100vw] !h-fit py-[100px] xl:py-[50px] xl:!h-[100vh] p-0 items-center justify-center'}>
@@ -30,7 +35,7 @@ export function Experiences() {
                     <div className={'h-[2px] xl:w-[300px] w-full bg-brown-main mb-[16px] mx-auto'}/>
                     <TextSlide delay={2500}
                                className={' text-[22px] p-[16px] text-center mx-auto h-fit xl:h-[120px]'}> {t("I've contributed to React/TypeScript apps through my part-time job")} </TextSlide>
-                   <FadeAnimation delay={3} duration={2} className={' flex place-self-end xl:mt-[20px] mx-auto'}>
+                    <FadeAnimation delay={3} duration={2} className={' flex place-self-end xl:mt-[20px] mx-auto'}>
                         <TextSlide delay={3000}>
                             <Link to={'/works#frontend'}
                                   className={'text-brown-main font-semibold hover:font-bold p-[10px] mx-auto w-fit text-[20px] xl:text-[32px] '}>{t("See more")}</Link>
@@ -72,7 +77,7 @@ export function Experiences() {
                     <div className={'h-[2px] xl:w-[300px] w-full bg-brown-main mb-[16px] mx-auto'}/>
                     <TextSlide delay={2500}
                                className={' text-[22px] p-[16px] text-center mx-auto h-fit xl:h-[120px]'}>{t("I've taken a Machine Learning course during my time in university")}</TextSlide>
-                   <FadeAnimation delay={3} duration={2} className={' flex place-self-end xl:mt-[20px] mx-auto'}>
+                    <FadeAnimation delay={3} duration={2} className={' flex place-self-end xl:mt-[20px] mx-auto'}>
                         <TextSlide delay={3000}>
                             <Link to={'/works#analytics'}
                                   className={'text-brown-main font-semibold hover:font-bold p-[10px] mx-auto w-fit text-[20px] xl:text-[32px] '}>{t("See more")}</Link>
@@ -82,6 +87,17 @@ export function Experiences() {
                 </div>
 
             </div>
+              <FadeAnimation delay={1.8} duration={2}>
+                    <TextSlide delay={1800} duration={'2000ms'}>
+                        <button
+                            className={'flex flex-col mt-[40px] text-[24px] group text-brown-main font-semibold hover:font-bold p-[10px] rounded-[10px]'}
+                            onClick={scrollToNextSection}>{t("Get in touch!")} <img
+                            src={'/imgs/double-arrow-down-brown.svg'}
+                            className={'w-[24px] h-[24px] group-hover:w-[30px] mx-auto mt-[10px]'}/>
+                        </button>
+                    </TextSlide>
+                </FadeAnimation>
+
         </section>
     )
 }
