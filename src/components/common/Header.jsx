@@ -68,10 +68,10 @@ export function Header() {
                         className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-our ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
                 </div>
             </div>
-            <div className={'flex flex-row gap-[10px] md:gap-[20px] text-[20px] align-self-end'}>
-                <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('en')}>🇬🇧</button>
-                <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('vn')}>🇻🇳</button>
-            </div>
+            {/*<div className={'flex flex-row gap-[10px] md:gap-[20px] text-[20px] align-self-end'}>*/}
+            {/*    <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('en')}>🇬🇧</button>*/}
+            {/*    <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('vn')}>🇻🇳</button>*/}
+            {/*</div>*/}
         </div>
     )
 }
