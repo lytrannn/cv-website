@@ -22,8 +22,8 @@ export function Experiences() {
                     </div>
                     <h1 className={'font-serif mt-[20px] xl:mt-[50px] text-[32px] p-[16px] text-center w-fit xl:h-[130px] xl:w-[80%] mx-auto'}> {t("Frontend Web Development")}</h1>
                     <div className={'h-[2px] xl:w-[300px] w-full bg-brown-main mb-[16px] mx-auto'}/>
-                    <h1 className={' text-[24px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}> {t("I've contributed to React/TypeScript apps through my part-time job")} </h1>
-                    <Link to={'/works'}
+                    <h1 className={' text-[22px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}> {t("I've contributed to React/TypeScript apps through my part-time job")} </h1>
+                    <Link to={'/works#frontend'}
                           className={'text-brown-main font-semibold hover:font-bold p-[10px] mx-auto w-fit text-[20px] xl:text-[32px] xl:mt-[20px]'}> {t("See more")}</Link>
                 </div>
                  <div className={'flex flex-col xl:w-[300px] w-[80%] mx-auto'}>
@@ -35,8 +35,8 @@ export function Experiences() {
                     </div>
                     <h1 className={'font-serif mt-[20px] xl:mt-[50px] text-[32px] p-[16px] text-center w-fit xl:h-[130px] xl:w-[50%] mx-auto'}> {t("Data Analytics")}</h1>
                     <div className={'h-[2px] xl:w-[300px] w-full bg-brown-main mb-[16px] mx-auto'}/>
-                    <h1 className={' text-[24px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}> {t("I've used R for Econometrics assignments on empirical analysis")} </h1>
-                    <Link to={'/works'}
+                    <h1 className={' text-[22px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}> {t("I've used R for Econometrics assignments on empirical analysis")} </h1>
+                    <Link to={'/works#analytics'}
                           className={'text-brown-main font-semibold hover:font-bold p-[10px] mx-auto w-fit text-[20px] xl:text-[32px] xl:mt-[20px]'}>{t("See more")}</Link>
                 </div>
                 <div className={'flex flex-col xl:w-[300px] w-[80%] mx-auto'}>
@@ -48,8 +48,8 @@ export function Experiences() {
                     </div>
                     <h1 className={'font-serif mt-[20px] xl:mt-[50px] text-[32px] p-[16px] text-center w-fit xl:h-[130px] xl:w-[50%] mx-auto'}>{t("Machine Learning")}</h1>
                     <div className={'h-[2px] xl:w-[300px] w-full bg-brown-main mb-[16px] mx-auto'}/>
-                    <h1 className={' text-[24px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}>{t("I've taken a Machine Learning course during my time in university")}</h1>
-                    <Link to={'/works'}
+                    <h1 className={' text-[22px] p-[16px] text-center mx-auto h-fit xl:h-[110px]'}>{t("I've taken a Machine Learning course during my time in university")}</h1>
+                    <Link to={'/works#analytics'}
                           className={'text-brown-main font-semibold hover:font-bold p-[10px] mx-auto w-fit text-[20px] xl:text-[32px] xl:mt-[20px]'}>{t("See more")}</Link>
 
                 </div>

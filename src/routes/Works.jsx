@@ -1,6 +1,6 @@
 import {Header} from "../components/common/Header";
 import {Tabs} from "@mantine/core";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {t} from "../i18n/function";
 
 export const Works = () => {
@@ -79,16 +79,27 @@ export const Works = () => {
 
 
     ]
+    useEffect(() => {
+        return () => {
+            if (window.location.hash === "#frontend") {
+                setActiveTab("frontend")
+            } else {
+                setActiveTab("data")
+            }
+        };
+    }, []);
+
+
     return (
         <>
             <Header/>
             <section id={"about"}
-                     className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-center'}>
-                <Tabs defaultValue={"frontend"} color={"#915c62"} classNames={{
-                    tabLabel: "text-primary-main text-[12px] text-wrap text-center max-sm:max-w-[100px] lg:text-[28px] font-serif md:font-semibold",
-                    tab: "hover:bg-[#915c62]"
+                     className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-start md:py-[100px]'}>
+                <Tabs value={activeTab} color={"#b52636"} classNames={{
+                    tabLabel: "text-primary-main text-[12px] text-wrap text-center max-sm:max-w-[100px] lg:text-[28px] font-serif md:font-semibold hover:font-bold",
+                    tab: "hover:!bg-transparent !bg-transparent"
                 }}
-                      className={'w-[80%] mb-[30px]'}>
+                      className={'w-[80%] mb-[30px] place-self-top'}>
                     <Tabs.List grow defaultValue={"frontend"}>
                         <Tabs.Tab value={"frontend"} onClick={() => setActiveTab("frontend")}>{t("Frontend Web Development")}</Tabs.Tab>
                         <Tabs.Tab value={"data"} onClick={() => setActiveTab("data")}>{t("Data Analytics")} / Machine
@@ -104,10 +115,10 @@ export const Works = () => {
                                     <a href={project.url} target={'_blank'} key={index}
                                          className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
                                         <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
-                                        <div className={'bg-primary-main h-[200px] w-full'}>
+                                        <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
                                             <img src={project.photo} className={'h-full w-full object-none'}/>
                                         </div>
-                                        <div className={'flex !gap-[10px] flex-wrap h-[125px] justify-left'}>
+                                        <div className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
                                             {project.tags.map((tag, index) => {
                                                 return (
                                                     <span key={index}
@@ -127,13 +138,13 @@ export const Works = () => {
 
                         projects.filter((project) => project.type === "data").map((project, index) => {
                                 return (
-                                    <a href={project.url} target={'_blank'} key={index}
-                                       className={'flex flex-col gap-[10px] h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                  <a href={project.url} target={'_blank'} key={index}
+                                         className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
                                         <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
-                                        <div className={'bg-primary-main h-[200px] w-full'}>
+                                        <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
                                             <img src={project.photo} className={'h-full w-full object-none'}/>
                                         </div>
-                                        <div className={'flex !gap-[10px] flex-wrap h-[125px] justify-left'}>
+                                        <div className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
                                             {project.tags.map((tag, index) => {
                                                 return (
                                                     <span key={index}
