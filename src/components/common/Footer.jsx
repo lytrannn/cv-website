@@ -7,7 +7,7 @@ import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
 
 export function Footer() {
     return (
-        <section id={"about"}
+        <section id={"contact"}
                  className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] lg:!h-[100vh] p-0 items-center justify-center'}>
             <div className={'flex flex-col lg:flex-row gap-[50px] lg:gap-[100px] justify-between w-[80%]'}>
                 <div className={'flex flex-col gap-[50px] '}>

@@ -8,7 +8,7 @@ export function Experiences() {
     // const {t} = useTranslation();
 
     const scrollToNextSection = () => {
-        const nextSection = document.getElementById('about');
+        const nextSection = document.getElementById('contact');
         nextSection && nextSection.scrollIntoView({behavior: 'smooth'});
 
     }
