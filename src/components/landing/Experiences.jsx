@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faJs} from "@fortawesome/free-brands-svg-icons";
+import {faJs, faPython} from "@fortawesome/free-brands-svg-icons";
 import {Link} from "react-router-dom";
 import {t} from "../../i18n/function";
 import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
@@ -68,7 +68,8 @@ export function Experiences() {
                         <div className={'flex mx-auto bg-brown-main rounded-full w-[150px] h-[150px]'}>
                             <div
                                 className={'flex border-primary-main border-[3px] rounded-full w-[140px] h-[140px] my-auto mx-auto'}>
-                                <img src={'/imgs/jupyter.svg'} className={'!w-[80px] !h-[80px] mx-auto my-auto'}/>
+                                 <FontAwesomeIcon icon={faPython}
+                                                 className={'text-primary-main mx-auto my-auto !w-[63px] !h-[63px]'}/>
                             </div>
                         </div>
                     </FadeAnimation>
