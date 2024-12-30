@@ -22,8 +22,8 @@ export function Hero() {
                        className={'mt-[40px] text-[20px] md:text-[32px] text-center max-w-[80%]'}>{t("I have a background in Economics and Finance. But I also code!")}</TextSlide>
             <TextSlide delay={1200}
                        className={'mt-[10px] text-[20px] md:text-[32px]'}>{t("Welcome to my CV.")}</TextSlide>
-            <FadeAnimation delay={1.8} duration={2}>
-                <TextSlide delay={1800} duration={'2000ms'}>
+            <FadeAnimation delay={1.8} >
+                <TextSlide delay={1800}>
                     <button
                         className={'flex flex-col mt-[40px] text-[24px] group text-brown-main font-semibold hover:font-bold p-[10px] rounded-[10px]'}
                         onClick={scrollToNextSection}>{t("Get to know me")} <img

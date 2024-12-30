@@ -16,17 +16,17 @@ export function About() {
                 <div
                     className={`!flex md:!hidden w-[200px] h-[200px] rounded-full bg-cover bg-right-top bg-[url('/imgs/IMG_6305.jpeg')] mx-auto`}/>
                 <div className={'flex flex-col gap-[20px] md:gap-[50px] items-start my-auto'}>
-                    <FadeAnimation duration={1.5} className={'max-md:mx-auto'}>
+                    <FadeAnimation  className={'max-md:mx-auto'}>
                         <TextSlide
                                    className={'font-normal font-serif text-primary-main !mx-auto md:mx-0 text-center md:text-left text-[56px]'}>{t("About me")}</TextSlide>
                     </FadeAnimation>
-                    <FadeAnimation delay={0.6} duration={1.5}>
-                        <TextSlide delay={600} duration={'2000ms'}
+                    <FadeAnimation delay={0.6} >
+                        <TextSlide delay={600}
                                    className={' text-[20px] md:text-[24px] text-primary-main text-center md:text-left  mx-auto w-[80%] md:w-[400px] xl:w-[500px] '}>
                             {t("I am a recent graduate from Royal Melbourne Institute of Technology. I have a background in Economics and Finance. I am also a self-taught programmer. I have experience in Frontend Web Development, Data Analytics and Machine Learning.")}</TextSlide>
                     </FadeAnimation>
                     <FadeAnimation delay={1.8} duration={2} className={'mx-auto'}>
-                        <TextSlide delay={1800} duration={'2000ms'}>
+                        <TextSlide delay={1800} >
                             <button
                                 className={'flex flex-col mt-[40px] text-[24px] group text-primary-main mx-auto font-semibold hover:font-bold p-[10px] rounded-[10px]'}
                                 onClick={scrollToNextSection}>{t("See my experience")} <img

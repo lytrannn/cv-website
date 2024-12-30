@@ -124,7 +124,7 @@ export const Works = () => {
                                                 <img src={project.photo} className={'h-full w-full object-none'}/>
                                             </div>
                                             <div
-                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
+                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-fit md:h-[75px] justify-left mt-[10px]'}>
                                                 {project.tags.map((tag, index) => {
                                                     return (
                                                         <span key={index}
@@ -153,7 +153,7 @@ export const Works = () => {
                                                 <img src={project.photo} className={'h-full w-full object-none'}/>
                                             </div>
                                             <div
-                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-[75px] justify-left mt-[10px]'}>
+                                                className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-fit md:h-[75px] justify-left mt-[10px]'}>
                                                 {project.tags.map((tag, index) => {
                                                     return (
                                                         <span key={index}
