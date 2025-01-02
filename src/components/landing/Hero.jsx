@@ -12,7 +12,7 @@ export function Hero() {
         <section id={"hero"}
                  className={'bg-primary-main flex flex-col !w-[100vw] !h-[100vh] p-0 items-center justify-center'}>
             <div
-                className={'flex flex-col md:flex-row text-[100px] !place-items-center !w-fit !text-center mx-auto text-5xl md:text-6xl gap-[20px] leading-relaxed'}>
+                className={'flex flex-col md:flex-row text-[100px] !place-items-center !w-fit !text-center mx-auto text-3xl md:text-6xl gap-[20px] leading-relaxed'}>
                 <TextSlide delay={350} className={'font-normal italic font-serif'}>{t("Hi,")}
                 </TextSlide>
                 <TextSlide
