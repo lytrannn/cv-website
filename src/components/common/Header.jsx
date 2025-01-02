@@ -56,7 +56,7 @@ export function Header() {
                 </div>
                 <div className={'flex flex-col group'}>
                     <Link to={"/works"}
-                          className={`${bgBrown ? 'text-brown-main' : 'text-primary-main'} font-serif text-[15px] sm:text-[20px] md:text-[24px] lg:text-[32px] max-md:px-[10px] my-auto font-semibold`}>{t("My projects")}</Link>
+                          className={`${bgBrown ? 'text-brown-main' : 'text-primary-main'} font-serif text-[15px] sm:text-[20px] md:text-[24px] lg:text-[32px] max-md:px-[10px] my-auto font-semibold`}>{t("Projects")}</Link>
                      <div
                         className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-our ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
                 </div>
