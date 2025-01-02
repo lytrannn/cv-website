@@ -36,6 +36,7 @@ export function Footer() {
 
                     </div>
                 </div>
+
                 <div
                     className={'flex flex-col flex-row text-primary-main text-3xl lg:text-4xl lg:mt-auto gap-[30px]'}>
                     <a href={'mailto:huonglytrannn@gmail.com'} className={'flex flex-row lg:gap-[30px] gap-[10px]'}>

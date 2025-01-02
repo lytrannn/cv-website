@@ -118,7 +118,7 @@ export const Works = () => {
                                 return (
                                     <TextSlide key={index} delay={((index + 1) * 300)}>
                                         <a href={project.url} target={'_blank'} key={index}
-                                           className={'flex flex-col gap-[10px] w-ful¬l h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                           className={'flex flex-col gap-[10px] hover:translate-y-[-10px] transition transition-all duration-50  w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
                                             <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
                                             <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
                                                 <img src={project.photo} className={'h-full w-full object-none'}/>
@@ -147,7 +147,7 @@ export const Works = () => {
                                 return (
                                     <TextSlide delay={((index + 1) * 300)} key={index}>
                                         <a href={project.url} target={'_blank'} key={index}
-                                           className={'flex flex-col gap-[10px] w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-lg'}>
+                                           className={'flex flex-col gap-[10px] w-full h-fit hover:translate-y-[-10px] transition transition-all duration-50 w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
                                             <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
                                             <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
                                                 <img src={project.photo} className={'h-full w-full object-none'}/>
