@@ -4,6 +4,7 @@ import {Contact} from "./routes/Contact.jsx";
 import {Landing} from "./routes/Landing.jsx";
 import {Error404} from "./routes/Error404.jsx";
 import {Works} from "./routes/Works.jsx";
+import {Admin} from "./routes/Admin.jsx";
 import {createTheme, MantineProvider} from '@mantine/core';
 import '@mantine/core/styles.css';
 
@@ -20,6 +21,7 @@ function App() {
                         <Route path="/" element={<Landing/>}/>
                         <Route path="/contact" element={<Contact/>}/>
                         <Route path="/works" element={<Works/>}/>
+                        <Route path="/admin" element={<Admin/>}/>
                         <Route path="*" element={<Error404/>}/>
                     </Routes>
                 </MantineProvider>

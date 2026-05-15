@@ -1,8 +1,9 @@
 import {t} from "../../i18n/function";
 import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
+import {useContent} from "../../lib/useContent";
 
 export function About() {
-    // const t = useTranslation();
+    const {content} = useContent('about');
 
     const scrollToNextSection = () => {
         const nextSection = document.getElementById('experiences');
@@ -18,19 +19,20 @@ export function About() {
                 <div className={'flex flex-col gap-[20px] md:gap-[50px] items-start my-auto'}>
                     <FadeAnimation  className={'max-md:mx-auto'}>
                         <TextSlide
-                                   className={'font-normal font-serif text-primary-main !mx-auto md:mx-0 text-center md:text-left text-[56px]'}>{t("About me")}</TextSlide>
+                                   className={'font-normal font-serif text-primary-main !mx-auto md:mx-0 text-center md:text-left text-[56px]'}>{t(content.heading)}</TextSlide>
                     </FadeAnimation>
                     <FadeAnimation delay={0.6} >
                         <TextSlide delay={600}
                                    className={' text-[20px] md:text-[24px] text-primary-main text-center md:text-left  mx-auto w-[80%] md:w-[400px] xl:w-[500px] '}>
-                            {t("I am a recent graduate from Royal Melbourne Institute of Technology. I have a background in Economics and Finance. I am also a self-taught programmer. I have experience in Frontend Web Development, Data Analytics and Machine Learning.")}</TextSlide>
+                            {t(content.body)}</TextSlide>
                     </FadeAnimation>
                     <FadeAnimation delay={1.8} duration={2} className={'mx-auto'}>
                         <TextSlide delay={1800} >
                             <button
                                 className={'flex flex-col mt-[40px] text-[24px] group text-primary-main mx-auto font-semibold hover:font-bold p-[10px] rounded-[10px]'}
-                                onClick={scrollToNextSection}>{t("See my experience")} <img
+                                onClick={scrollToNextSection}>{t(content.ctaLabel)} <img
                                 src={'/imgs/double-arrow-down-white.svg'}
+                                alt={''}
                                 className={'w-[24px] h-[24px] group-hover:w-[30px] mx-auto mt-[10px]'}/>
                             </button>
                         </TextSlide>

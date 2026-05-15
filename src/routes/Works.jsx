@@ -3,83 +3,12 @@ import {Tabs} from "@mantine/core";
 import {useEffect, useState} from "react";
 import {t} from "../i18n/function";
 import {TextSlide} from "@deepsel/lake-ui";
+import {useContent} from "../lib/useContent";
 
 export const Works = () => {
     const [activeTab, setActiveTab] = useState("frontend");
-
-    const projects = [
-        {
-            title: 'DDG Psychothérapie website',
-            tags: ["React", 'Tailwind', 'Material UI', 'i18n', 'Responsive', 'CSS'],
-            type: 'frontend',
-            url: 'https://www.ddgcabinetpsy.ch/',
-            photo: '/imgs/projects/ddg.svg'
-        },
-        {
-            title: 'ICG website',
-            tags: ["TypeScript", 'Material UI', 'Animations', 'Debugging', 'MantineUI', 'CSS', 'Tailwind'],
-            type: 'frontend',
-            url: 'https://www.icg.ch/',
-            photo: '/imgs/projects/icg.svg'
-        },
-        {
-            title: 'Deepsel website',
-            tags: ['Carousel Component', 'Material UI', 'Mantine UI', 'Lake UI', 'CSS', 'Responsive', 'Tailwind',],
-            type: 'frontend',
-            url: 'https://deepsel.com/',
-            photo: '/imgs/projects/deepsel.svg'
-        },
-        {
-            title: 'Clubloungery website',
-            tags: ['React', 'Material UI', 'Responsive', 'i18n', 'Tailwind', 'Animations'],
-            type: 'frontend',
-            url: 'https://clublounger-preview.deepsel.com/',
-            photo: '/imgs/projects/clubloungery.svg'
-
-        },
-        {
-            title: 'NativeOps website',
-            tags: ['React', 'i18n', 'Animations', 'debugging', 'Tailwind', 'CSS'],
-            type: 'frontend',
-            url: 'https://www.nativeops.swiss/',
-            photo: '/imgs/projects/NativeOps.svg'
-
-        },
-        {
-            title: 'ODA Learning website',
-            tags: ['Material UI', 'Tailwind', 'Responsive'],
-            type: 'frontend',
-            url: 'https://oda-preview.deepsel.com/',
-            photo: '/imgs/projects/oda-logo.png'
-
-        },
-        {
-            title: 'Machine Learning: Empirical Project',
-            tags: ['Python', 'Jupyter Notebook', 'Analytics', 'pandas', 'numpy', 'scikit-learn', 'matplotlib', 'seaborn',],
-            type: 'data',
-            url: 'https://github.com/lytrannn/econ1612-banking-ml',
-            photo: '/imgs/projects/econ1612.png'
-
-        },
-        {
-            title: 'Individual Statistical Analysis Project',
-            tags: ['R', 'RStudio', 'ggplot2', 'dplyr', 'tidyverse'],
-            type: 'data',
-            url: 'https://github.com/lytrannn/econ1313-econometrics-individual',
-            photo: '/imgs/projects/econ1313-indi.png'
-
-        },
-        {
-            title: 'Group Empirical Analysis in R',
-            tags: ['R', 'RStudio', 'Teamwork', 'fpp3', 'readxl', 'dplyr', 'car', 'lmtest', 'stargazer', 'pastecs'],
-            type: 'data',
-            url: 'https://github.com/lytrannn/econ1313-econometrics-group',
-            photo: '/imgs/projects/econ1313-group.png'
-
-        },
-
-
-    ]
+    const {content} = useContent('projects');
+    const projects = content.items || [];
     useEffect(() => {
         if (window.location.hash === "#frontend") {
             setActiveTab("frontend")
