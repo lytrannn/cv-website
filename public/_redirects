@@ -1,0 +1,4 @@
+# SPA fallback — let react-router handle client-side routes like /admin,
+# /works, /contact. Without this, Netlify serves its own 404 when a user
+# loads one of those URLs directly (instead of navigating via a Link).
+/*    /index.html   200
