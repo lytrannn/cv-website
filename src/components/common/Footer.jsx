@@ -18,17 +18,17 @@ export function Footer() {
                     <div className={'w-full h-[2px] bg-primary-main'}></div>
                     <div className={'flex flex-row gap-[40px] justify-center lg:justify-start'}>
                         <FadeAnimation delay={0.8} duration={1.3}>
-                            <a href={'https://github.com/lytrannn'}>
+                            <a href={'https://github.com/lytrannn'} target={'_blank'} rel={'noopener noreferrer'}>
                                 <FontAwesomeIcon icon={faGithub} className={'text-primary-main text-6xl'}/>
                             </a>
                         </FadeAnimation>
                         <FadeAnimation delay={1.4} duration={1.3}>
-                            <a href={'https://www.linkedin.com/in/lytrannn'}>
+                            <a href={'https://www.linkedin.com/in/lytrannn'} target={'_blank'} rel={'noopener noreferrer'}>
                                 <FontAwesomeIcon icon={faLinkedin} className={'text-primary-main text-6xl'}/>
                             </a>
                         </FadeAnimation>
                         <FadeAnimation delay={2} duration={1.3}>
-                            <a href={'https://www.facebook.com/lytrannnnnnn'}>
+                            <a href={'https://www.facebook.com/lytrannnnnnn'} target={'_blank'} rel={'noopener noreferrer'}>
                                 <FontAwesomeIcon icon={faFacebook} className={'text-primary-main text-6xl'}/>
                             </a>
                         </FadeAnimation>
@@ -41,14 +41,13 @@ export function Footer() {
                     className={'flex flex-col flex-row text-primary-main text-3xl lg:text-4xl lg:mt-auto gap-[30px]'}>
                     <a href={'mailto:huonglytrannn@gmail.com'} className={'flex flex-row lg:gap-[30px] gap-[10px]'}>
                         <FadeAnimation delay={2.2} duration={1}>
-                            <a href={'mailto:huonglytrannn@gmail.com'}
-                               className={'flex bg-primary-main rounded-full w-[75px] h-[75px] my-auto'}>
+                            <div className={'flex bg-primary-main rounded-full w-[75px] h-[75px] my-auto'}>
                                 <div
                                     className={'flex border-brown-main border-[3px] rounded-full w-[65px] h-[65px] my-auto mx-auto'}>
                                     <FontAwesomeIcon icon={faEnvelope}
                                                      className={'text-brown-main mx-auto my-auto !w-[40px] !h-[40px]'}/>
                                 </div>
-                            </a>
+                            </div>
                         </FadeAnimation>
                         <FadeAnimation delay={2.2} duration={1}>
                             <TextSlide right delay={3000} className={'flex flex-row lg:gap-[30px] gap-[10px]'}>

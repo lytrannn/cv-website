@@ -19,8 +19,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Landing/>}/>
                         <Route path="/contact" element={<Contact/>}/>
-                        <Route path="*" element={<Error404/>}/>
                         <Route path="/works" element={<Works/>}/>
+                        <Route path="*" element={<Error404/>}/>
                     </Routes>
                 </MantineProvider>
             </BrowserRouter>

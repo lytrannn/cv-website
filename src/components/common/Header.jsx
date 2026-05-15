@@ -6,7 +6,6 @@ import {t} from "../../i18n/function";
 export function Header() {
 
     const [bgBrown, setBgBrown] = useState(false);
-    // const t = useTranslation();
 
     useEffect(() => {
         setBgColour();
@@ -52,26 +51,26 @@ export function Header() {
                     <Link to={"/"}
                           className={`${bgBrown ? 'text-brown-main' : 'text-primary-main'} font-serif text-[15px] max-md:px-[10px] sm:text-[20px] md:text-[24px] lg:text-[32px] my-auto font-semibold`}>{t("Home")}</Link>
                     <div
-                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-our ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
+                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-out ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
                 </div>
                 <div className={'flex flex-col group'}>
                     <Link to={"/works"}
                           className={`${bgBrown ? 'text-brown-main' : 'text-primary-main'} font-serif text-[15px] sm:text-[20px] md:text-[24px] lg:text-[32px] max-md:px-[10px] my-auto font-semibold`}>{t("Projects")}</Link>
                      <div
-                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-our ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
+                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-out ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
                 </div>
                 <div className={'flex flex-col group'}>
 
                     <Link to={"/contact"}
                           className={`${bgBrown ? 'text-brown-main' : 'text-primary-main'} font-serif text-[15px] sm:text-[20px] md:text-[24px] lg:text-[32px] max-md:px-[10px] my-auto font-semibold`}>{t("Contact")}</Link>
                     <div
-                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-our ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
+                        className={`w-0 group-hover:w-full h-[2px] md:h-[4px] transition transition-all duration-300 ease-in-out ${bgBrown? 'bg-brown-light' :  'bg-primary-main/[80%]'} group-hover:cursor-pointer`}></div>
                 </div>
             </div>
             <div className={'flex flex-row gap-[10px] md:gap-[20px] text-[20px] align-self-end'}>
             {/*    <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('en')}>🇬🇧</button>*/}
             {/*    <button className={'md:text-[24px] lg:text-[32px]'} onClick={() => changeLanguage('vn')}>🇻🇳</button>*/}
-<img src={'/imgs/tofu.svg'} className={'bg-transparent'}></img>
+                <img src={'/imgs/tofu.svg'} alt={''} className={'bg-transparent'}/>
             </div>
         </div>
     )

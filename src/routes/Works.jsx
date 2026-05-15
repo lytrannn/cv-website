@@ -10,14 +10,14 @@ export const Works = () => {
     const projects = [
         {
             title: 'DDG Psychothérapie website',
-            tags: ["React", 'Tailwind', 'Material UI', 'i18n', 'Tailwind', 'Responsive', 'CSS'],
+            tags: ["React", 'Tailwind', 'Material UI', 'i18n', 'Responsive', 'CSS'],
             type: 'frontend',
             url: 'https://www.ddgcabinetpsy.ch/',
             photo: '/imgs/projects/ddg.svg'
         },
         {
             title: 'ICG website',
-            tags: ["TypeScript", 'Material UI', 'Animations', 'Debugging', 'MantineUI', 'CSS', 'Tailwind',],
+            tags: ["TypeScript", 'Material UI', 'Animations', 'Debugging', 'MantineUI', 'CSS', 'Tailwind'],
             type: 'frontend',
             url: 'https://www.icg.ch/',
             photo: '/imgs/projects/icg.svg'
@@ -81,13 +81,11 @@ export const Works = () => {
 
     ]
     useEffect(() => {
-        return () => {
-            if (window.location.hash === "#frontend") {
-                setActiveTab("frontend")
-            } else if (window.location.hash === "#analytics") {
-                setActiveTab("data")
-            }
-        };
+        if (window.location.hash === "#frontend") {
+            setActiveTab("frontend")
+        } else if (window.location.hash === "#analytics") {
+            setActiveTab("data")
+        }
     }, []);
 
 
@@ -98,7 +96,7 @@ export const Works = () => {
                      className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-start md:py-[100px]'}>
                 <Tabs value={activeTab} color={"#b52636"} classNames={{
                     tabLabel: "text-primary-main text-[12px] text-wrap text-center max-sm:max-w-[100px] lg:text-[28px] font-serif md:font-semibold hover:font-bold",
-                    tab: "hover:!bg-transparent !bg-transparent"
+                    tab: "!bg-transparent"
                 }}
                       className={'w-[80%] mb-[30px] place-self-top'}>
                     <Tabs.List grow defaultValue={"frontend"}>
@@ -116,18 +114,18 @@ export const Works = () => {
                     {activeTab === "frontend" ?
                         projects.filter((project) => project.type === "frontend").map((project, index) => {
                                 return (
-                                    <TextSlide key={index} delay={((index + 1) * 300)}>
-                                        <a href={project.url} target={'_blank'} key={index}
-                                           className={'flex flex-col gap-[10px] hover:translate-y-[-10px] transition transition-all duration-50  w-full h-fit w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
+                                    <TextSlide key={project.url} delay={((index + 1) * 300)}>
+                                        <a href={project.url} target={'_blank'} rel={'noopener noreferrer'}
+                                           className={'flex flex-col gap-[10px] hover:translate-y-[-10px] transition-all duration-50 w-full h-fit md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
                                             <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
                                             <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
-                                                <img src={project.photo} className={'h-full w-full object-none'}/>
+                                                <img src={project.photo} alt={project.title} className={'h-full w-full object-contain'}/>
                                             </div>
                                             <div
                                                 className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-fit md:h-[75px] justify-left mt-[10px]'}>
-                                                {project.tags.map((tag, index) => {
+                                                {project.tags.map((tag, tagIndex) => {
                                                     return (
-                                                        <span key={index}
+                                                        <span key={tagIndex}
                                                               className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
                                                     )
                                                 })}
@@ -145,18 +143,18 @@ export const Works = () => {
 
                         projects.filter((project) => project.type === "data").map((project, index) => {
                                 return (
-                                    <TextSlide delay={((index + 1) * 300)} key={index}>
-                                        <a href={project.url} target={'_blank'} key={index}
-                                           className={'flex flex-col gap-[10px] w-full h-fit hover:translate-y-[-10px] transition transition-all duration-50 w-full md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
+                                    <TextSlide delay={((index + 1) * 300)} key={project.url}>
+                                        <a href={project.url} target={'_blank'} rel={'noopener noreferrer'}
+                                           className={'flex flex-col gap-[10px] w-full h-fit hover:translate-y-[-10px] transition-all duration-50 md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
                                             <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
                                             <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
-                                                <img src={project.photo} className={'h-full w-full object-none'}/>
+                                                <img src={project.photo} alt={project.title} className={'h-full w-full object-contain'}/>
                                             </div>
                                             <div
                                                 className={'flex !gap-x-[10px] !gap-y-[5px] flex-wrap shrink h-fit md:h-[75px] justify-left mt-[10px]'}>
-                                                {project.tags.map((tag, index) => {
+                                                {project.tags.map((tag, tagIndex) => {
                                                     return (
-                                                        <span key={index}
+                                                        <span key={tagIndex}
                                                               className={'bg-brown-light text-primary-main p-[5px] h-fit rounded-md '}>{tag}</span>
                                                     )
                                                 })}
