@@ -27,6 +27,43 @@ function FieldEditor({label, value, onChange, longText}) {
     );
 }
 
+// Editor for a localised field — stores { en, vn } so the public site
+// can serve the right language. Accepts a legacy plain string and
+// promotes it to the object shape on first edit.
+function LocalizedFieldEditor({label, value, onChange, longText}) {
+    const obj = (value && typeof value === 'object')
+        ? value
+        : {en: value || '', vn: value || ''};
+    const setLang = (lng) => (e) => onChange({...obj, [lng]: e.target.value});
+    const Input = longText ? 'textarea' : 'input';
+    const inputProps = longText ? {rows: 4} : {type: 'text'};
+    return (
+        <div className={'flex flex-col gap-[6px]'}>
+            <span className={'text-[13px] font-semibold uppercase tracking-wide text-brown-main/[70%]'}>{label}</span>
+            <div className={'grid grid-cols-1 md:grid-cols-2 gap-[8px]'}>
+                <label className={'flex flex-col gap-[2px]'}>
+                    <span className={'text-[11px] uppercase tracking-wider text-brown-main/[50%]'}>EN 🇬🇧</span>
+                    <Input
+                        {...inputProps}
+                        value={obj.en ?? ''}
+                        onChange={setLang('en')}
+                        className={'border border-brown-main/[40%] rounded-md p-[8px] font-serif text-[15px] bg-white'}
+                    />
+                </label>
+                <label className={'flex flex-col gap-[2px]'}>
+                    <span className={'text-[11px] uppercase tracking-wider text-brown-main/[50%]'}>VN 🇻🇳</span>
+                    <Input
+                        {...inputProps}
+                        value={obj.vn ?? ''}
+                        onChange={setLang('vn')}
+                        className={'border border-brown-main/[40%] rounded-md p-[8px] font-serif text-[15px] bg-white'}
+                    />
+                </label>
+            </div>
+        </div>
+    );
+}
+
 function StringListEditor({label, value, onChange}) {
     const list = Array.isArray(value) ? value : [];
     const update = (next) => onChange(next);
@@ -117,6 +154,11 @@ function ListEditor({label, items, defaults, fields, onChange}) {
                                     </label>
                                 );
                             }
+                            if (kind === 'localizedText' || kind === 'localizedTextarea') {
+                                return <LocalizedFieldEditor key={key} label={fieldLabel} value={v}
+                                                             longText={kind === 'localizedTextarea'}
+                                                             onChange={setField}/>;
+                            }
                             return <FieldEditor key={key} label={fieldLabel} value={v}
                                                 longText={longText} onChange={setField}/>;
                         })}
@@ -133,38 +175,38 @@ const SCHEMAS = {
     hero: {
         title: 'Hero',
         fields: [
-            {key: 'greeting', label: 'Greeting'},
-            {key: 'name', label: 'Name line'},
-            {key: 'tagline1', label: 'Tagline 1', longText: true},
-            {key: 'tagline2', label: 'Tagline 2'},
-            {key: 'ctaLabel', label: 'CTA label'},
+            {key: 'greeting', label: 'Greeting', kind: 'localizedText'},
+            {key: 'name', label: 'Name line', kind: 'localizedText'},
+            {key: 'tagline1', label: 'Tagline 1', kind: 'localizedTextarea'},
+            {key: 'tagline2', label: 'Tagline 2', kind: 'localizedText'},
+            {key: 'ctaLabel', label: 'CTA label', kind: 'localizedText'},
         ],
     },
     about: {
         title: 'About',
         fields: [
-            {key: 'heading', label: 'Heading'},
-            {key: 'body', label: 'Body', longText: true},
-            {key: 'ctaLabel', label: 'CTA label'},
+            {key: 'heading', label: 'Heading', kind: 'localizedText'},
+            {key: 'body', label: 'Body', kind: 'localizedTextarea'},
+            {key: 'ctaLabel', label: 'CTA label', kind: 'localizedText'},
         ],
     },
     experiences: {
         title: 'Experiences',
         fields: [
-            {key: 'heading', label: 'Heading'},
-            {key: 'ctaLabel', label: 'CTA label'},
+            {key: 'heading', label: 'Heading', kind: 'localizedText'},
+            {key: 'ctaLabel', label: 'CTA label', kind: 'localizedText'},
             {
                 key: 'items',
                 label: 'Items',
                 kind: 'list',
-                itemDefaults: {id: '', iconKey: 'js', title: '', blurb: '', link: '', linkLabel: 'See more'},
+                itemDefaults: {id: '', iconKey: 'js', title: {en: '', vn: ''}, blurb: {en: '', vn: ''}, link: '', linkLabel: {en: 'See more', vn: 'Xem thêm'}},
                 itemFields: [
                     {key: 'id', label: 'ID (stable slug, referenced by profiles)'},
                     {key: 'iconKey', label: 'Icon', kind: 'select', options: ['js', 'r', 'python']},
-                    {key: 'title', label: 'Title'},
-                    {key: 'blurb', label: 'Blurb', longText: true},
+                    {key: 'title', label: 'Title', kind: 'localizedText'},
+                    {key: 'blurb', label: 'Blurb', kind: 'localizedTextarea'},
                     {key: 'link', label: 'Link (e.g. /works?profile=frontend)'},
-                    {key: 'linkLabel', label: 'Link label'},
+                    {key: 'linkLabel', label: 'Link label', kind: 'localizedText'},
                 ],
             },
         ],
@@ -176,9 +218,9 @@ const SCHEMAS = {
                 key: 'items',
                 label: 'Projects',
                 kind: 'list',
-                itemDefaults: {title: '', type: 'frontend', url: '', photo: '', tags: []},
+                itemDefaults: {title: {en: '', vn: ''}, type: 'frontend', url: '', photo: '', tags: []},
                 itemFields: [
-                    {key: 'title', label: 'Title'},
+                    {key: 'title', label: 'Title', kind: 'localizedText'},
                     {key: 'type', label: 'Type (referenced by profiles, e.g. frontend, data, backend)'},
                     {key: 'url', label: 'URL'},
                     {key: 'photo', label: 'Photo path (e.g. /imgs/projects/x.svg)'},
@@ -195,10 +237,10 @@ const SCHEMAS = {
                 key: 'items',
                 label: 'Profiles',
                 kind: 'list',
-                itemDefaults: {id: '', label: '', projectTypes: [], experienceIds: []},
+                itemDefaults: {id: '', label: {en: '', vn: ''}, projectTypes: [], experienceIds: []},
                 itemFields: [
                     {key: 'id', label: 'ID (slug used in ?profile=…)'},
-                    {key: 'label', label: 'Display label (the Works tab name)'},
+                    {key: 'label', label: 'Display label (the Works tab name)', kind: 'localizedText'},
                     {key: 'projectTypes', label: 'Project types in this profile', kind: 'stringList'},
                     {key: 'experienceIds', label: 'Experience IDs to keep (others are archived)', kind: 'stringList'},
                 ],
@@ -208,7 +250,7 @@ const SCHEMAS = {
     footer: {
         title: 'Footer',
         fields: [
-            {key: 'heading', label: 'Heading'},
+            {key: 'heading', label: 'Heading', kind: 'localizedText'},
             {key: 'email', label: 'Email'},
             {key: 'phone', label: 'Phone (with country code)'},
             {key: 'github', label: 'GitHub URL'},
@@ -280,6 +322,15 @@ export function SectionEditor({section, canSave}) {
                                         defaults={f.itemDefaults}
                                         fields={f.itemFields}
                                         onChange={setField(f.key)}/>
+                        );
+                    }
+                    if (f.kind === 'localizedText' || f.kind === 'localizedTextarea') {
+                        return (
+                            <LocalizedFieldEditor key={f.key}
+                                                  label={f.label}
+                                                  value={data[f.key]}
+                                                  longText={f.kind === 'localizedTextarea'}
+                                                  onChange={setField(f.key)}/>
                         );
                     }
                     return (

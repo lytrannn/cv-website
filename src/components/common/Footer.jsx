@@ -5,12 +5,14 @@ import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
 import {t} from "../../i18n/function";
 import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
 import {useContent} from "../../lib/useContent";
+import {useLocalize} from "../../lib/localize";
 
 // Strip non-digits for tel: links so a stored "+84 919 624 028" still works.
 const telHref = (phone) => `tel:${(phone || '').replace(/[^+\d]/g, '')}`;
 
 export function Footer() {
     const {content} = useContent('footer');
+    const loc = useLocalize();
 
     return (
         <section id={"contact"}
@@ -19,7 +21,7 @@ export function Footer() {
                 <div className={'flex flex-col gap-[50px] '}>
                     <TextSlide
                         className={'font-normal italic text-center leading-relaxed lg:text-left font-serif text-primary-main text-5xl lg:text-6xl '}>
-                        {t(content.heading)}
+                        {loc(content.heading)}
                     </TextSlide>
                     <div className={'w-full h-[2px] bg-primary-main'}></div>
                     <div className={'flex flex-row gap-[40px] justify-center lg:justify-start'}>

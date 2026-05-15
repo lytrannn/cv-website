@@ -5,6 +5,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import {t} from "../i18n/function";
 import {TextSlide} from "@deepsel/lake-ui";
 import {useContent} from "../lib/useContent";
+import {useLocalize, pickLocale} from "../lib/localize";
 
 // Legacy hash anchors (the Experiences section used to point at
 // /works#frontend and /works#analytics). Map them to profile ids so old
@@ -29,6 +30,7 @@ export const Works = () => {
     const {content: profilesContent} = useContent('profiles');
     const projects = projectsContent.items || [];
     const profiles = profilesContent.items || [];
+    const loc = useLocalize();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -80,7 +82,7 @@ export const Works = () => {
                                 <Tabs.Tab key={profile.id}
                                           value={profile.id}
                                           onClick={() => handleTab(profile.id)}>
-                                    <TextSlide>{t(profile.label)}</TextSlide>
+                                    <TextSlide>{loc(profile.label)}</TextSlide>
                                 </Tabs.Tab>
                             ))}
                         </Tabs.List>
@@ -92,9 +94,9 @@ export const Works = () => {
                         <TextSlide key={project.url || index} delay={((index + 1) * 300)}>
                             <a href={project.url} target={'_blank'} rel={'noopener noreferrer'}
                                className={'flex flex-col gap-[10px] hover:translate-y-[-10px] transition-all duration-50 w-full h-fit md:w-[500px] md:h-[400px] bg-primary-main/[90%] p-[20px] rounded-md'}>
-                                <h1 className={'text-brown-main text-[24px] font-serif'}>{t(project.title)}</h1>
+                                <h1 className={'text-brown-main text-[24px] font-serif'}>{loc(project.title)}</h1>
                                 <div className={'bg-primary-main !min-h-[150px] w-full flex flex-1'}>
-                                    <img src={project.photo} alt={project.title}
+                                    <img src={project.photo} alt={pickLocale(project.title, 'en')}
                                          className={'h-full w-full object-contain'}/>
                                 </div>
                                 <div
