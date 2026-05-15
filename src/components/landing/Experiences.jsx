@@ -1,6 +1,6 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faJs, faPython} from "@fortawesome/free-brands-svg-icons";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {t} from "../../i18n/function";
 import {FadeAnimation, TextSlide} from "@deepsel/lake-ui";
 import {useContent} from "../../lib/useContent";
@@ -25,6 +25,21 @@ function ItemIcon({iconKey}) {
 
 export function Experiences() {
     const {content} = useContent('experiences');
+    const {content: profilesContent} = useContent('profiles');
+    const location = useLocation();
+
+    // If the URL has ?profile=<id> and that profile lists experienceIds,
+    // keep only the listed items (others are "archived" for that view).
+    // No ?profile=, or an empty allowlist, means show everything.
+    const profileId = new URLSearchParams(location.search).get('profile');
+    const activeProfile = profileId
+        ? (profilesContent.items || []).find((p) => p.id === profileId)
+        : null;
+    const allow = activeProfile?.experienceIds;
+    const items = (content.items || []).filter((item) => {
+        if (!Array.isArray(allow) || allow.length === 0) return true;
+        return allow.includes(item.id || item.iconKey);
+    });
 
     const scrollToNextSection = () => {
         const nextSection = document.getElementById('contact');
@@ -39,8 +54,8 @@ export function Experiences() {
                     className={'font-normal font-serif text-brown-main text-[56px] text-center'}>{t(content.heading)}</TextSlide>
             </FadeAnimation>
             <div className={'flex flex-col xl:flex-row w-fit mx-auto mt-[60px] xl:mt-[100px] gap-[50px] xl:gap-[75px]'}>
-                {content.items?.map((item, index) => (
-                    <div key={index}
+                {items.map((item, index) => (
+                    <div key={item.id || item.iconKey || index}
                          className={'flex flex-col xl:w-[300px] w-[80%] mx-auto'}>
                         <FadeAnimation delay={1}>
                             <div className={'flex mx-auto bg-brown-main rounded-full w-[150px] h-[150px]'}>

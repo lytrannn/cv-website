@@ -22,24 +22,27 @@ export const experiencesDefault = {
     ctaLabel: 'Get in touch!',
     items: [
         {
+            id: 'js',
             iconKey: 'js',
             title: 'Frontend Web Development',
             blurb: "I've contributed to React/TypeScript apps through my part-time job",
-            link: '/works#frontend',
+            link: '/works?profile=frontend',
             linkLabel: 'See more',
         },
         {
+            id: 'r',
             iconKey: 'r',
             title: 'Data Analytics',
             blurb: "I've used R for Econometrics assignments on empirical analysis",
-            link: '/works#analytics',
+            link: '/works?profile=data',
             linkLabel: 'See more',
         },
         {
+            id: 'python',
             iconKey: 'python',
             title: 'Machine Learning',
             blurb: "I've taken a Machine Learning course during my time in university",
-            link: '/works#analytics',
+            link: '/works?profile=data',
             linkLabel: 'See more',
         },
     ],
@@ -122,10 +125,33 @@ export const footerDefault = {
     facebook: 'https://www.facebook.com/lytrannnnnnn',
 };
 
+// Job profiles: a profile is a curated subset of the CV — which project
+// types appear under it, and which experience cards are kept (i.e. not
+// archived) for it. Used by the Works tabs and by the Experiences
+// section when the URL has ?profile=<id>.
+export const profilesDefault = {
+    defaultId: 'frontend',
+    items: [
+        {
+            id: 'frontend',
+            label: 'Frontend Web Development',
+            projectTypes: ['frontend'],
+            experienceIds: ['js'],
+        },
+        {
+            id: 'data',
+            label: 'Data Analytics / Machine Learning',
+            projectTypes: ['data'],
+            experienceIds: ['r', 'python'],
+        },
+    ],
+};
+
 export const SECTIONS = {
     hero: heroDefault,
     about: aboutDefault,
     experiences: experiencesDefault,
     projects: projectsDefault,
     footer: footerDefault,
+    profiles: profilesDefault,
 };

@@ -9,6 +9,7 @@ const SECTION_TABS = [
     {key: 'about', label: 'About'},
     {key: 'experiences', label: 'Experiences'},
     {key: 'projects', label: 'Projects'},
+    {key: 'profiles', label: 'Profiles'},
     {key: 'footer', label: 'Footer'},
 ];
 
