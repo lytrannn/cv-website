@@ -93,7 +93,7 @@ export const Works = () => {
         <>
             <Header/>
             <section id={"about"}
-                     className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-start md:py-[100px]'}>
+                     className={'bg-brown-main flex flex-col !w-[100vw] h-fit py-[50px] md:!min-h-[100vh] p-0 items-center justify-start md:py-[100px] overflow-hidden'}>
                 <Tabs value={activeTab} color={"#b52636"} classNames={{
                     tabLabel: "text-primary-main text-[12px] text-wrap text-center max-sm:max-w-[100px] lg:text-[28px] font-serif md:font-semibold hover:font-bold",
                     tab: "!bg-transparent"

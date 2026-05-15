@@ -14,12 +14,12 @@ export function Experiences() {
     }
     return (
         <section id={"experiences"}
-                 className={'bg-primary-main flex flex-col xl:!w-[100vw] !h-fit py-[100px] xl:py-[50px] xl:!h-[100vh] p-0 items-center justify-center'}>
+                 className={'bg-primary-main flex flex-col xl:!w-[100vw] !h-fit py-[100px] xl:py-[80px] xl:!min-h-[100vh] p-0 items-center justify-center overflow-hidden relative z-10'}>
             <FadeAnimation >
                 <TextSlide
                     className={'font-normal font-serif text-brown-main text-[56px] text-center'}>{t("Relevant experience")}</TextSlide>
             </FadeAnimation>
-            <div className={'flex flex-col xl:flex-row w-fit mx-auto mt-[150px] gap-[50px] xl:gap-[75px]'}>
+            <div className={'flex flex-col xl:flex-row w-fit mx-auto mt-[60px] xl:mt-[100px] gap-[50px] xl:gap-[75px]'}>
                 <div className={'flex flex-col xl:w-[300px] w-[80%] mx-auto'}>
                     <FadeAnimation delay={1} >
                         <div className={'flex mx-auto bg-brown-main rounded-full w-[150px] h-[150px]'}>

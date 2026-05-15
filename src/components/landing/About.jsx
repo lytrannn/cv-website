@@ -11,7 +11,7 @@ export function About() {
     }
     return (
         <section id={"about"}
-                 className={'bg-brown-main flex flex-col !w-[100vw]  h-fit py-[50px] md:!h-[100vh] p-0 items-center justify-center'}>
+                 className={'bg-brown-main flex flex-col !w-[100vw] h-fit py-[50px] md:!min-h-[100vh] md:py-[80px] p-0 items-center justify-center overflow-hidden'}>
             <div className={'flex flex-col md:flex-row gap-[20px] md:gap-[50px] xl:gap-[100px]'}>
                 <div
                     className={`!flex md:!hidden w-[200px] h-[200px] rounded-full bg-cover bg-right-top bg-[url('/imgs/IMG_6305.jpeg')] mx-auto`}/>
@@ -37,7 +37,7 @@ export function About() {
                     </FadeAnimation>
                 </div>
                 <div
-                    className={`!hidden md:!flex md:w-[300px] md:h-[500px] xl:w-[600px] xl:h-[800px] rounded-t-full bg-cover bg-[url('/imgs/IMG_6305.jpeg')]`}/>
+                    className={`!hidden md:!flex md:w-[300px] md:h-[500px] md:max-h-[80vh] xl:w-[600px] xl:h-[800px] xl:max-h-[85vh] shrink-0 rounded-t-full bg-cover bg-[url('/imgs/IMG_6305.jpeg')]`}/>
             </div>
         </section>
     )
