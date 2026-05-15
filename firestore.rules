@@ -1,0 +1,29 @@
+rules_version = '2';
+
+// Firestore security rules — paste into Firebase Console → Firestore → Rules.
+// Anyone can read the site content. Only the two listed Google accounts can
+// write. Mirror this allowlist in src/lib/useAuth.js.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isEditor() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email in [
+          'mikiritrann@gmail.com',
+          'huonglytrannn@gmail.com'
+        ];
+    }
+
+    // Section content documents: content/hero, content/about, etc.
+    match /content/{section} {
+      allow read: if true;
+      allow create, update, delete: if isEditor();
+    }
+
+    // Default deny everything else.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
